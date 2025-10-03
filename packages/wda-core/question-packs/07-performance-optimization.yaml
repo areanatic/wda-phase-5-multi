@@ -1,0 +1,147 @@
+id: performance-optimization
+version: 1.0.0
+name:
+  de: Performance & Optimierung
+  en: Performance & Optimization
+description:
+  de: Fragen zu Performance-Metriken und Optimierungsstrategien
+  en: Questions about performance metrics and optimization strategies
+category: performance
+tags:
+  - performance
+  - optimization
+  - scalability
+author:
+  name: WDA Team
+estimatedMinutes: 7
+targetAudience:
+  - developer
+  - architect
+
+questions:
+  - id: q41-performance-monitoring
+    text:
+      de: Monitored ihr Performance-Metriken? Wenn ja, welche?
+      en: Do you monitor performance metrics? If yes, which ones?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Kein Performance Monitoring? Wie erkennt ihr dann Performance-Probleme?
+            en: No performance monitoring? How do you detect performance issues then?
+    metadata:
+      category: monitoring
+      freierTalkPotential: high
+
+  - id: q42-load-testing
+    text:
+      de: Macht ihr Load Testing oder Performance Testing?
+      en: Do you do load testing or performance testing?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, regelmäßig
+        - Ja, vor Releases
+        - Selten
+        - Nein
+      en:
+        - Yes, regularly
+        - Yes, before releases
+        - Rarely
+        - No
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: testing
+
+  - id: q43-bottlenecks
+    text:
+      de: Wo sind aktuell die größten Performance-Bottlenecks?
+      en: Where are currently the biggest performance bottlenecks?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: performance
+      freierTalkPotential: high
+
+  - id: q44-caching-strategy
+    text:
+      de: Welche Caching-Strategie verwendet ihr?
+      en: What caching strategy do you use?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: optimization
+
+  - id: q45-database-optimization
+    text:
+      de: Wie optimiert ihr Database Queries? (Indexing, Query Analysis, etc.)
+      en: How do you optimize database queries? (Indexing, Query Analysis, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: database
+      freierTalkPotential: medium
+
+  - id: q46-scalability
+    text:
+      de: Ist eure Architektur auf Skalierung ausgelegt? (Horizontal/Vertical Scaling)
+      en: Is your architecture designed for scaling? (Horizontal/Vertical Scaling)
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, horizontal skalierbar
+        - Ja, vertical skalierbar
+        - Teilweise
+        - Nein
+      en:
+        - Yes, horizontally scalable
+        - Yes, vertically scalable
+        - Partially
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: architecture
+
+  - id: q47-cdn-usage
+    text:
+      de: Nutzt ihr ein CDN für Static Assets?
+      en: Do you use a CDN for static assets?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja
+        - Nein
+        - Nicht relevant
+      en:
+        - Yes
+        - No
+        - Not relevant
+    applicableModes:
+      - deep
+    metadata:
+      category: optimization

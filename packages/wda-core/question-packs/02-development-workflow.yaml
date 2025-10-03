@@ -1,0 +1,176 @@
+id: development-workflow
+version: 1.0.0
+name:
+  de: Entwicklungs-Workflow
+  en: Development Workflow
+description:
+  de: Fragen zum täglichen Entwicklungsprozess und Workflow
+  en: Questions about daily development process and workflow
+category: process
+tags:
+  - workflow
+  - development
+  - process
+author:
+  name: WDA Team
+estimatedMinutes: 8
+targetAudience:
+  - developer
+  - tech-lead
+
+questions:
+  - id: q7-code-review
+    text:
+      de: Wie läuft euer Code Review Prozess ab?
+      en: How does your code review process work?
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    validation:
+      minLength: 30
+    followUpRules:
+      - condition: answer_too_short
+        threshold: 30
+        followUpQuestion:
+          text:
+            de: Kannst du das genauer beschreiben? Wer reviewt, wie lange dauert es, etc.?
+            en: Can you describe that in more detail? Who reviews, how long does it take, etc.?
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Kein Code Review? Wie stellt ihr dann Code-Qualität sicher?
+            en: No code review? How do you ensure code quality then?
+    metadata:
+      category: code-review
+      freierTalkPotential: high
+
+  - id: q8-git-workflow
+    text:
+      de: Welches Git-Workflow-Modell nutzt ihr? (Feature Branches, GitFlow, Trunk-based, etc.)
+      en: What Git workflow model do you use? (Feature Branches, GitFlow, Trunk-based, etc.)
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: git
+      freierTalkPotential: medium
+
+  - id: q9-deployment-frequency
+    text:
+      de: Wie oft deployed ihr in Production?
+      en: How often do you deploy to production?
+    type: single_choice
+    required: true
+    options:
+      de:
+        - Mehrmals täglich
+        - Täglich
+        - Mehrmals pro Woche
+        - Wöchentlich
+        - Weniger als wöchentlich
+      en:
+        - Multiple times per day
+        - Daily
+        - Multiple times per week
+        - Weekly
+        - Less than weekly
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: deployment
+
+  - id: q10-ci-cd
+    text:
+      de: Habt ihr eine CI/CD Pipeline? Wenn ja, wie ist die aufgebaut?
+      en: Do you have a CI/CD pipeline? If yes, how is it structured?
+    type: text
+    required: true
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Keine CI/CD? Wie testet und deployed ihr dann?
+            en: No CI/CD? How do you test and deploy then?
+    metadata:
+      category: ci-cd
+      freierTalkPotential: high
+
+  - id: q11-testing-strategy
+    text:
+      de: Welche Testing-Strategie verfolgt ihr? (Unit, Integration, E2E, etc.)
+      en: What testing strategy do you follow? (Unit, Integration, E2E, etc.)
+    type: multiple_choice
+    required: false
+    options:
+      de:
+        - Unit Tests
+        - Integration Tests
+        - E2E Tests
+        - Manual Testing
+        - Keine Tests
+      en:
+        - Unit Tests
+        - Integration Tests
+        - E2E Tests
+        - Manual Testing
+        - No tests
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: testing
+
+  - id: q12-branch-protection
+    text:
+      de: Nutzt ihr Branch Protection Rules auf dem Main Branch?
+      en: Do you use branch protection rules on the main branch?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, strikt
+        - Ja, teilweise
+        - Nein
+        - Weiß nicht
+      en:
+        - Yes, strictly
+        - Yes, partially
+        - No
+        - Don't know
+    applicableModes:
+      - deep
+    metadata:
+      category: git
+
+  - id: q13-feature-flags
+    text:
+      de: Verwendet ihr Feature Flags für Releases?
+      en: Do you use feature flags for releases?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, regelmäßig
+        - Manchmal
+        - Nein
+      en:
+        - Yes, regularly
+        - Sometimes
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: deployment

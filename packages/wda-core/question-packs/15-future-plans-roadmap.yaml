@@ -1,0 +1,154 @@
+id: future-plans-roadmap
+version: 1.0.0
+name:
+  de: Zukunftspläne & Roadmap
+  en: Future Plans & Roadmap
+description:
+  de: Fragen zu zukünftigen Plänen und der Projekt-Roadmap
+  en: Questions about future plans and project roadmap
+category: planning
+tags:
+  - roadmap
+  - planning
+  - future
+author:
+  name: WDA Team
+estimatedMinutes: 7
+targetAudience:
+  - tech-lead
+  - product-manager
+  - architect
+
+questions:
+  - id: q93-next-features
+    text:
+      de: Was sind die wichtigsten Features auf eurer Roadmap?
+      en: What are the most important features on your roadmap?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: roadmap
+      freierTalkPotential: high
+
+  - id: q94-tech-modernization
+    text:
+      de: Gibt es Pläne für Tech Stack Modernisierung?
+      en: Are there plans for tech stack modernization?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: modernization
+      freierTalkPotential: high
+
+  - id: q95-scalability-plans
+    text:
+      de: Wie bereitet ihr euch auf zukünftiges Wachstum/Skalierung vor?
+      en: How are you preparing for future growth/scaling?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: scalability
+      freierTalkPotential: medium
+
+  - id: q96-team-growth
+    text:
+      de: Plant ihr das Team zu vergrößern?
+      en: Are you planning to grow the team?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, signifikant
+        - Ja, leicht
+        - Nein
+        - Team wird kleiner
+      en:
+        - Yes, significantly
+        - Yes, slightly
+        - No
+        - Team is shrinking
+    applicableModes:
+      - deep
+    metadata:
+      category: team
+
+  - id: q97-migration-plans
+    text:
+      de: Gibt es geplante Migrations-Projekte? (Cloud, Database, Framework, etc.)
+      en: Are there planned migration projects? (Cloud, Database, Framework, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: migrations
+      freierTalkPotential: high
+
+  - id: q98-learning-goals
+    text:
+      de: Was möchtest du persönlich in den nächsten 6 Monaten lernen/verbessern?
+      en: What would you personally like to learn/improve in the next 6 months?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: personal-growth
+      freierTalkPotential: high
+
+  - id: q99-biggest-risk
+    text:
+      de: Was siehst du als größtes Risiko für das Projekt?
+      en: What do you see as the biggest risk for the project?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: contains_keywords
+        keywords:
+          - technical debt
+          - team
+          - resources
+          - timeline
+        followUpQuestion:
+          text:
+            de: Das klingt besorgniserregend. Gibt es Pläne das zu mitigieren?
+            en: That sounds concerning. Are there plans to mitigate this?
+    metadata:
+      category: risks
+      freierTalkPotential: high
+
+  - id: q100-dream-scenario
+    text:
+      de: Wenn du unbegrenzte Ressourcen hättest, was würdest du am Projekt ändern?
+      en: If you had unlimited resources, what would you change about the project?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 25
+    metadata:
+      category: vision
+      freierTalkPotential: high

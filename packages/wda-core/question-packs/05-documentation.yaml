@@ -1,0 +1,122 @@
+id: documentation
+version: 1.0.0
+name:
+  de: Dokumentation
+  en: Documentation
+description:
+  de: Fragen zur Code- und Projektdokumentation
+  en: Questions about code and project documentation
+category: documentation
+tags:
+  - docs
+  - documentation
+  - knowledge
+author:
+  name: WDA Team
+estimatedMinutes: 5
+targetAudience:
+  - developer
+  - tech-lead
+
+questions:
+  - id: q28-code-comments
+    text:
+      de: Wie handhabt ihr Code-Kommentare? (Viel, wenig, nur bei Bedarf, etc.)
+      en: How do you handle code comments? (A lot, little, only when needed, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: code-quality
+
+  - id: q29-api-documentation
+    text:
+      de: Wie dokumentiert ihr eure APIs? (OpenAPI/Swagger, JSDoc, manuell, etc.)
+      en: How do you document your APIs? (OpenAPI/Swagger, JSDoc, manually, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: api
+      freierTalkPotential: medium
+
+  - id: q30-readme-quality
+    text:
+      de: Wie würdest du die Qualität eurer README/Docs bewerten?
+      en: How would you rate the quality of your README/docs?
+    type: scale
+    required: false
+    scale:
+      min: 1
+      max: 5
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Was fehlt konkret in der Dokumentation?
+            en: What's specifically missing in the documentation?
+    metadata:
+      category: documentation
+
+  - id: q31-architecture-docs
+    text:
+      de: Habt ihr Architektur-Diagramme oder technische Dokumentation?
+      en: Do you have architecture diagrams or technical documentation?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, aktuell und gepflegt
+        - Ja, aber veraltet
+        - Nein
+      en:
+        - Yes, current and maintained
+        - Yes, but outdated
+        - No
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: architecture
+
+  - id: q32-onboarding-docs
+    text:
+      de: Gibt es Onboarding-Dokumentation für neue Team-Mitglieder?
+      en: Is there onboarding documentation for new team members?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, umfassend
+        - Ja, grundlegend
+        - Nein
+      en:
+        - Yes, comprehensive
+        - Yes, basic
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: onboarding
+
+  - id: q33-doc-maintenance
+    text:
+      de: Wer ist für die Pflege der Dokumentation verantwortlich?
+      en: Who is responsible for maintaining the documentation?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    metadata:
+      category: documentation
+      freierTalkPotential: medium

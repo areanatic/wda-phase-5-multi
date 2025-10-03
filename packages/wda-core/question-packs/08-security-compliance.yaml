@@ -1,0 +1,163 @@
+id: security-compliance
+version: 1.0.0
+name:
+  de: Security & Compliance
+  en: Security & Compliance
+description:
+  de: Fragen zu Sicherheit, Datenschutz und Compliance
+  en: Questions about security, privacy and compliance
+category: security
+tags:
+  - security
+  - compliance
+  - privacy
+  - gdpr
+author:
+  name: WDA Team
+estimatedMinutes: 8
+targetAudience:
+  - developer
+  - architect
+  - security-engineer
+
+questions:
+  - id: q48-security-practices
+    text:
+      de: Welche Security Best Practices setzt ihr um?
+      en: What security best practices do you implement?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: security
+      freierTalkPotential: medium
+
+  - id: q49-secret-management
+    text:
+      de: Wie managed ihr Secrets und API Keys?
+      en: How do you manage secrets and API keys?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    followUpRules:
+      - condition: contains_keywords
+        keywords:
+          - hardcoded
+          - plain text
+          - committed
+        followUpQuestion:
+          text:
+            de: Das klingt riskant. Gibt es Pläne das zu verbessern?
+            en: That sounds risky. Are there plans to improve this?
+    metadata:
+      category: security
+      freierTalkPotential: high
+
+  - id: q50-authentication
+    text:
+      de: Welche Authentication-Methode nutzt ihr? (JWT, OAuth, Session-based, etc.)
+      en: What authentication method do you use? (JWT, OAuth, Session-based, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    metadata:
+      category: auth
+
+  - id: q51-security-audits
+    text:
+      de: Macht ihr regelmäßige Security Audits oder Penetration Tests?
+      en: Do you conduct regular security audits or penetration tests?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, regelmäßig
+        - Ja, gelegentlich
+        - Nein
+      en:
+        - Yes, regularly
+        - Yes, occasionally
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: security
+
+  - id: q52-gdpr-compliance
+    text:
+      de: Ist euer Projekt GDPR-compliant? (falls relevant)
+      en: Is your project GDPR-compliant? (if relevant)
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, vollständig
+        - Teilweise
+        - Nein
+        - Nicht relevant
+      en:
+        - Yes, fully
+        - Partially
+        - No
+        - Not relevant
+    applicableModes:
+      - deep
+    metadata:
+      category: compliance
+
+  - id: q53-vulnerability-scanning
+    text:
+      de: Nutzt ihr Tools für Vulnerability Scanning? (Dependabot, Snyk, etc.)
+      en: Do you use tools for vulnerability scanning? (Dependabot, Snyk, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: security
+
+  - id: q54-logging-pii
+    text:
+      de: Wie stellt ihr sicher, dass keine PII (Personally Identifiable Information) in Logs landet?
+      en: How do you ensure no PII (Personally Identifiable Information) ends up in logs?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: privacy
+      freierTalkPotential: medium
+
+  - id: q55-ssl-tls
+    text:
+      de: Nutzt ihr SSL/TLS für alle Verbindungen?
+      en: Do you use SSL/TLS for all connections?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, überall
+        - Nur in Production
+        - Teilweise
+        - Nein
+      en:
+        - Yes, everywhere
+        - Only in production
+        - Partially
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: security

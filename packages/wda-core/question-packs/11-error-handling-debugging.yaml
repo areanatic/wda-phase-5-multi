@@ -1,0 +1,106 @@
+id: error-handling-debugging
+version: 1.0.0
+name:
+  de: Error Handling & Debugging
+  en: Error Handling & Debugging
+description:
+  de: Fragen zum Umgang mit Fehlern und Debugging-Praktiken
+  en: Questions about error handling and debugging practices
+category: debugging
+tags:
+  - errors
+  - debugging
+  - logging
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - developer
+
+questions:
+  - id: q69-error-tracking
+    text:
+      de: Nutzt ihr Error Tracking Tools? (Sentry, Bugsnag, Rollbar, etc.)
+      en: Do you use error tracking tools? (Sentry, Bugsnag, Rollbar, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: monitoring
+
+  - id: q70-logging-strategy
+    text:
+      de: Wie ist eure Logging-Strategie aufgebaut?
+      en: How is your logging strategy structured?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: logging
+      freierTalkPotential: medium
+
+  - id: q71-error-recovery
+    text:
+      de: Wie handhabt ihr Error Recovery und Graceful Degradation?
+      en: How do you handle error recovery and graceful degradation?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: error-handling
+      freierTalkPotential: high
+
+  - id: q72-debugging-tools
+    text:
+      de: Welche Debugging Tools nutzt du am häufigsten?
+      en: Which debugging tools do you use most frequently?
+    type: text
+    required: false
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: debugging
+
+  - id: q73-error-messages
+    text:
+      de: Wie gestaltet ihr Error Messages für End-User?
+      en: How do you design error messages for end-users?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: ux
+
+  - id: q74-incident-response
+    text:
+      de: Wie reagiert ihr auf Production Incidents?
+      en: How do you respond to production incidents?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: answer_too_vague
+        followUpQuestion:
+          text:
+            de: Kannst du den Prozess konkret beschreiben?
+            en: Can you describe the process concretely?
+    metadata:
+      category: incidents
+      freierTalkPotential: high

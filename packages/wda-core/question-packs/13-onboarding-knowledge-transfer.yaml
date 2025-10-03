@@ -1,0 +1,131 @@
+id: onboarding-knowledge-transfer
+version: 1.0.0
+name:
+  de: Onboarding & Wissenstransfer
+  en: Onboarding & Knowledge Transfer
+description:
+  de: Fragen zum Onboarding neuer Team-Mitglieder und Wissenstransfer
+  en: Questions about onboarding new team members and knowledge transfer
+category: onboarding
+tags:
+  - onboarding
+  - knowledge
+  - training
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - tech-lead
+  - developer
+
+questions:
+  - id: q81-onboarding-process
+    text:
+      de: Wie läuft der Onboarding-Prozess für neue Entwickler ab?
+      en: How does the onboarding process for new developers work?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 25
+    followUpRules:
+      - condition: answer_too_vague
+        followUpQuestion:
+          text:
+            de: Kannst du konkrete Schritte nennen?
+            en: Can you name concrete steps?
+    metadata:
+      category: onboarding
+      freierTalkPotential: high
+
+  - id: q82-setup-time
+    text:
+      de: Wie lange dauert es durchschnittlich, bis ein neues Team-Mitglied produktiv ist?
+      en: How long does it take on average for a new team member to be productive?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Weniger als 1 Woche
+        - 1-2 Wochen
+        - 2-4 Wochen
+        - Mehr als 4 Wochen
+      en:
+        - Less than 1 week
+        - 1-2 weeks
+        - 2-4 weeks
+        - More than 4 weeks
+    applicableModes:
+      - deep
+    metadata:
+      category: onboarding
+
+  - id: q83-mentoring
+    text:
+      de: Gibt es ein Mentoring-Programm für neue Team-Mitglieder?
+      en: Is there a mentoring program for new team members?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, formell
+        - Ja, informell
+        - Nein
+      en:
+        - Yes, formally
+        - Yes, informally
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: mentoring
+
+  - id: q84-knowledge-silos
+    text:
+      de: Gibt es Knowledge Silos im Team? Wenn ja, wie geht ihr damit um?
+      en: Are there knowledge silos in the team? If yes, how do you handle them?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: knowledge
+      freierTalkPotential: high
+
+  - id: q85-cross-training
+    text:
+      de: Gibt es Cross-Training zwischen verschiedenen Team-Bereichen?
+      en: Is there cross-training between different team areas?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, regelmäßig
+        - Gelegentlich
+        - Nein
+      en:
+        - Yes, regularly
+        - Occasionally
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: training
+
+  - id: q86-offboarding
+    text:
+      de: Wie dokumentiert ihr Wissen, wenn Team-Mitglieder das Team verlassen?
+      en: How do you document knowledge when team members leave?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: offboarding
+      freierTalkPotential: medium

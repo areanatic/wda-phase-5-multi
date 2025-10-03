@@ -1,0 +1,169 @@
+id: technical-debt
+version: 1.0.0
+name:
+  de: Technical Debt
+  en: Technical Debt
+description:
+  de: Fragen zu technischen Schulden und Code-Qualität
+  en: Questions about technical debt and code quality
+category: quality
+tags:
+  - technical-debt
+  - refactoring
+  - code-quality
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - developer
+  - tech-lead
+  - architect
+
+questions:
+  - id: q34-tech-debt-level
+    text:
+      de: Wie würdest du das Level an Technical Debt in eurem Projekt einschätzen?
+      en: How would you rate the level of technical debt in your project?
+    type: scale
+    required: true
+    scale:
+      min: 1
+      max: 5
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Das klingt problematisch. Was sind die Haupt-Pain-Points?
+            en: That sounds problematic. What are the main pain points?
+    metadata:
+      category: debt
+      freierTalkPotential: high
+
+  - id: q35-refactoring-time
+    text:
+      de: Wie viel Zeit nehmt ihr euch für Refactoring?
+      en: How much time do you dedicate to refactoring?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Regelmäßig eingeplant
+        - Gelegentlich, wenn Zeit ist
+        - Nur bei akuten Problemen
+        - Gar nicht
+      en:
+        - Regularly scheduled
+        - Occasionally, when there's time
+        - Only for acute problems
+        - Not at all
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: refactoring
+
+  - id: q36-legacy-code
+    text:
+      de: Habt ihr Legacy Code im Projekt? Wenn ja, wie geht ihr damit um?
+      en: Do you have legacy code in the project? If yes, how do you handle it?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: contains_keywords
+        keywords:
+          - problem
+          - schwierig
+          - unmaintainable
+          - mess
+        followUpQuestion:
+          text:
+            de: Das klingt herausfordernd. Gibt es Pläne das anzugehen?
+            en: That sounds challenging. Are there plans to address it?
+    metadata:
+      category: legacy
+      freierTalkPotential: high
+
+  - id: q37-code-smells
+    text:
+      de: Welche Code Smells begegnen dir am häufigsten im Projekt?
+      en: Which code smells do you encounter most frequently in the project?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: code-quality
+      freierTalkPotential: high
+
+  - id: q38-dependency-updates
+    text:
+      de: Wie oft aktualisiert ihr Dependencies?
+      en: How often do you update dependencies?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Wöchentlich/regelmäßig
+        - Monatlich
+        - Nur bei Security Issues
+        - Selten bis nie
+      en:
+        - Weekly/regularly
+        - Monthly
+        - Only for security issues
+        - Rarely or never
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: dependencies
+
+  - id: q39-breaking-changes
+    text:
+      de: Wie geht ihr mit Breaking Changes in Dependencies um?
+      en: How do you handle breaking changes in dependencies?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: dependencies
+      freierTalkPotential: medium
+
+  - id: q40-code-coverage
+    text:
+      de: Wie ist eure Test Coverage ungefähr?
+      en: What's your approximate test coverage?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Über 80%
+        - 50-80%
+        - 20-50%
+        - Unter 20%
+        - Keine Tests
+      en:
+        - Above 80%
+        - 50-80%
+        - 20-50%
+        - Below 20%
+        - No tests
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: testing

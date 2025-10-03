@@ -1,0 +1,116 @@
+id: database-data-management
+version: 1.0.0
+name:
+  de: Database & Datenmanagement
+  en: Database & Data Management
+description:
+  de: Fragen zu Datenbanken, Migrations und Datenmanagement
+  en: Questions about databases, migrations and data management
+category: database
+tags:
+  - database
+  - data
+  - migrations
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - developer
+  - dba
+
+questions:
+  - id: q56-database-type
+    text:
+      de: Welche Art von Database nutzt ihr? (SQL, NoSQL, beide)
+      en: What type of database do you use? (SQL, NoSQL, both)
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: database
+
+  - id: q57-migrations
+    text:
+      de: Wie handhabt ihr Database Migrations?
+      en: How do you handle database migrations?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: migrations
+      freierTalkPotential: medium
+
+  - id: q58-backup-strategy
+    text:
+      de: Welche Backup-Strategie habt ihr für die Datenbank?
+      en: What backup strategy do you have for the database?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Kein Backup? Wie würdet ihr bei Datenverlust reagieren?
+            en: No backup? How would you react to data loss?
+    metadata:
+      category: backup
+      freierTalkPotential: high
+
+  - id: q59-orm-usage
+    text:
+      de: Nutzt ihr ein ORM? Wenn ja, welches?
+      en: Do you use an ORM? If yes, which one?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: orm
+
+  - id: q60-data-validation
+    text:
+      de: Wo validiert ihr Daten? (Frontend, Backend, Database Level)
+      en: Where do you validate data? (Frontend, Backend, Database Level)
+    type: multiple_choice
+    required: false
+    options:
+      de:
+        - Frontend
+        - Backend
+        - Database Level
+        - Überall
+      en:
+        - Frontend
+        - Backend
+        - Database Level
+        - Everywhere
+    applicableModes:
+      - deep
+    metadata:
+      category: validation
+
+  - id: q61-transaction-handling
+    text:
+      de: Wie handhabt ihr Database Transactions?
+      en: How do you handle database transactions?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: transactions
+      freierTalkPotential: medium

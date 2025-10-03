@@ -1,0 +1,182 @@
+id: communication-collaboration
+version: 1.0.0
+name:
+  de: Kommunikation & Zusammenarbeit
+  en: Communication & Collaboration
+description:
+  de: Fragen zur Team-Kommunikation und Zusammenarbeit
+  en: Questions about team communication and collaboration
+category: teamwork
+tags:
+  - communication
+  - collaboration
+  - teamwork
+author:
+  name: WDA Team
+estimatedMinutes: 7
+targetAudience:
+  - developer
+  - tech-lead
+  - product-manager
+
+questions:
+  - id: q20-daily-standup
+    text:
+      de: Macht ihr Daily Standups? Wenn ja, wie laufen die ab?
+      en: Do you do daily standups? If yes, how do they work?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Keine Standups? Wie synchronisiert ihr euch dann täglich?
+            en: No standups? How do you synchronize daily then?
+    metadata:
+      category: agile
+      freierTalkPotential: medium
+
+  - id: q21-communication-tools
+    text:
+      de: Welche Tools nutzt ihr für Team-Kommunikation? (Slack, Teams, Discord, etc.)
+      en: What tools do you use for team communication? (Slack, Teams, Discord, etc.)
+    type: multiple_choice
+    required: true
+    options:
+      de:
+        - Slack
+        - Microsoft Teams
+        - Discord
+        - Email
+        - Andere
+      en:
+        - Slack
+        - Microsoft Teams
+        - Discord
+        - Email
+        - Other
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: tools
+
+  - id: q22-async-vs-sync
+    text:
+      de: Wie ist das Verhältnis von asynchroner zu synchroner Kommunikation im Team?
+      en: What's the ratio of asynchronous to synchronous communication in the team?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Hauptsächlich asynchron
+        - Ausgewogen
+        - Hauptsächlich synchron
+      en:
+        - Mainly asynchronous
+        - Balanced
+        - Mainly synchronous
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: communication
+
+  - id: q23-knowledge-sharing
+    text:
+      de: Wie teilt ihr Wissen im Team? (Tech Talks, Pair Programming, Docs, etc.)
+      en: How do you share knowledge in the team? (Tech Talks, Pair Programming, Docs, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: answer_too_vague
+        followUpQuestion:
+          text:
+            de: Kannst du konkrete Beispiele nennen?
+            en: Can you give concrete examples?
+    metadata:
+      category: knowledge-sharing
+      freierTalkPotential: high
+
+  - id: q24-pair-programming
+    text:
+      de: Nutzt ihr Pair Programming oder Mob Programming?
+      en: Do you use pair programming or mob programming?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, regelmäßig
+        - Manchmal
+        - Selten
+        - Nie
+      en:
+        - Yes, regularly
+        - Sometimes
+        - Rarely
+        - Never
+    applicableModes:
+      - deep
+    metadata:
+      category: collaboration
+
+  - id: q25-remote-work
+    text:
+      de: Arbeitet euer Team remote, hybrid oder im Office?
+      en: Does your team work remote, hybrid, or in-office?
+    type: single_choice
+    required: true
+    options:
+      de:
+        - Voll remote
+        - Hybrid
+        - Im Office
+      en:
+        - Fully remote
+        - Hybrid
+        - In office
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: work-mode
+
+  - id: q26-decision-making
+    text:
+      de: Wie werden technische Entscheidungen im Team getroffen?
+      en: How are technical decisions made in the team?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 25
+    metadata:
+      category: decision-making
+      freierTalkPotential: high
+
+  - id: q27-conflict-resolution
+    text:
+      de: Wie geht ihr mit technischen Meinungsverschiedenheiten um?
+      en: How do you handle technical disagreements?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: conflict
+      freierTalkPotential: high

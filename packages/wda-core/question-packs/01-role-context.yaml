@@ -1,0 +1,141 @@
+id: role-context
+version: 1.0.0
+name:
+  de: Rolle & Kontext
+  en: Role & Context
+description:
+  de: Grundlegende Fragen zu deiner Rolle und dem Projektkontext
+  en: Basic questions about your role and project context
+category: foundation
+tags:
+  - basics
+  - role
+  - context
+author:
+  name: WDA Team
+  email: team@wda.dev
+estimatedMinutes: 5
+targetAudience:
+  - developer
+  - tech-lead
+  - architect
+
+questions:
+  - id: q1-role
+    text:
+      de: Was ist deine Rolle im Team?
+      en: What is your role in the team?
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: role
+      freierTalkPotential: medium
+
+  - id: q2-team-size
+    text:
+      de: Wie groß ist euer Entwicklungsteam?
+      en: How large is your development team?
+    type: number
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: team
+
+  - id: q3-project-type
+    text:
+      de: Was für ein Projekt entwickelt ihr? (Web App, Mobile App, Backend API, etc.)
+      en: What type of project are you developing? (Web App, Mobile App, Backend API, etc.)
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    validation:
+      minLength: 10
+    followUpRules:
+      - condition: answer_too_short
+        threshold: 10
+        followUpQuestion:
+          text:
+            de: Kannst du das etwas detaillierter beschreiben? Was sind die Hauptfeatures?
+            en: Can you describe that in more detail? What are the main features?
+    metadata:
+      category: project
+      freierTalkPotential: high
+
+  - id: q4-tech-stack
+    text:
+      de: Welche Technologien/Frameworks nutzt ihr hauptsächlich?
+      en: What technologies/frameworks do you mainly use?
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    validation:
+      minLength: 5
+    metadata:
+      category: tech-stack
+      freierTalkPotential: medium
+
+  - id: q5-experience-level
+    text:
+      de: Wie lange arbeitest du schon in diesem Projekt?
+      en: How long have you been working on this project?
+    type: single_choice
+    required: true
+    options:
+      de:
+        - Weniger als 3 Monate
+        - 3-6 Monate
+        - 6-12 Monate
+        - 1-2 Jahre
+        - Mehr als 2 Jahre
+      en:
+        - Less than 3 months
+        - 3-6 months
+        - 6-12 months
+        - 1-2 years
+        - More than 2 years
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: experience
+
+  - id: q6-main-challenges
+    text:
+      de: Was sind aktuell die größten Herausforderungen in eurem Workflow?
+      en: What are currently the biggest challenges in your workflow?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    followUpRules:
+      - condition: contains_keywords
+        keywords:
+          - problem
+          - issue
+          - challenge
+          - schwierig
+          - kompliziert
+        followUpQuestion:
+          text:
+            de: Das klingt herausfordernd. Möchtest du das näher beschreiben?
+            en: That sounds challenging. Would you like to elaborate on that?
+    metadata:
+      category: challenges
+      freierTalkPotential: high

@@ -1,0 +1,119 @@
+id: dependencies-libraries
+version: 1.0.0
+name:
+  de: Dependencies & Libraries
+  en: Dependencies & Libraries
+description:
+  de: Fragen zu externen Dependencies und Library-Management
+  en: Questions about external dependencies and library management
+category: dependencies
+tags:
+  - dependencies
+  - libraries
+  - packages
+author:
+  name: WDA Team
+estimatedMinutes: 5
+targetAudience:
+  - developer
+
+questions:
+  - id: q75-dependency-strategy
+    text:
+      de: Nach welchen Kriterien wählt ihr neue Dependencies aus?
+      en: What criteria do you use to select new dependencies?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: selection
+      freierTalkPotential: medium
+
+  - id: q76-monorepo
+    text:
+      de: Nutzt ihr ein Monorepo oder Multiple Repos?
+      en: Do you use a monorepo or multiple repos?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Monorepo
+        - Multiple Repos
+        - Hybrid
+      en:
+        - Monorepo
+        - Multiple repos
+        - Hybrid
+    applicableModes:
+      - deep
+    metadata:
+      category: structure
+
+  - id: q77-license-compliance
+    text:
+      de: Prüft ihr Lizenzen von Dependencies?
+      en: Do you check licenses of dependencies?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, automatisch
+        - Ja, manuell
+        - Nein
+      en:
+        - Yes, automatically
+        - Yes, manually
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: compliance
+
+  - id: q78-internal-libraries
+    text:
+      de: Habt ihr eigene interne Libraries entwickelt?
+      en: Have you developed your own internal libraries?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, mehrere
+        - Ja, einige
+        - Nein
+      en:
+        - Yes, multiple
+        - Yes, a few
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: internal
+
+  - id: q79-vendor-lock-in
+    text:
+      de: Wie vermeidet ihr Vendor Lock-in bei Cloud Services?
+      en: How do you avoid vendor lock-in with cloud services?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: cloud
+      freierTalkPotential: medium
+
+  - id: q80-peer-dependencies
+    text:
+      de: Wie handhabt ihr Peer Dependency Conflicts?
+      en: How do you handle peer dependency conflicts?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    metadata:
+      category: conflicts

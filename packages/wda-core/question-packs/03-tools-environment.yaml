@@ -1,0 +1,114 @@
+id: tools-environment
+version: 1.0.0
+name:
+  de: Tools & Entwicklungsumgebung
+  en: Tools & Development Environment
+description:
+  de: Fragen zu den verwendeten Tools und der Entwicklungsumgebung
+  en: Questions about used tools and development environment
+category: tooling
+tags:
+  - tools
+  - environment
+  - ide
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - developer
+
+questions:
+  - id: q14-ide
+    text:
+      de: Welche IDE/Editor nutzt du hauptsächlich?
+      en: Which IDE/editor do you mainly use?
+    type: single_choice
+    required: true
+    options:
+      de:
+        - VS Code
+        - JetBrains (IntelliJ, WebStorm, etc.)
+        - Vim/Neovim
+        - Xcode
+        - Andere
+      en:
+        - VS Code
+        - JetBrains (IntelliJ, WebStorm, etc.)
+        - Vim/Neovim
+        - Xcode
+        - Other
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: ide
+
+  - id: q15-linter
+    text:
+      de: Nutzt ihr einen Linter? Wenn ja, welchen?
+      en: Do you use a linter? If yes, which one?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: code-quality
+
+  - id: q16-formatter
+    text:
+      de: Welchen Code Formatter verwendet ihr? (Prettier, Black, etc.)
+      en: Which code formatter do you use? (Prettier, Black, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: code-quality
+
+  - id: q17-docker
+    text:
+      de: Nutzt ihr Docker für die lokale Entwicklung?
+      en: Do you use Docker for local development?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, für alles
+        - Ja, für Datenbanken/Services
+        - Nein
+      en:
+        - Yes, for everything
+        - Yes, for databases/services
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: tooling
+
+  - id: q18-package-manager
+    text:
+      de: Welchen Package Manager nutzt ihr? (npm, yarn, pnpm, etc.)
+      en: Which package manager do you use? (npm, yarn, pnpm, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    metadata:
+      category: tooling
+
+  - id: q19-monitoring
+    text:
+      de: Welche Monitoring/Logging Tools verwendet ihr in Production?
+      en: Which monitoring/logging tools do you use in production?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 10
+    metadata:
+      category: monitoring
+      freierTalkPotential: medium

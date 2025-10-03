@@ -1,0 +1,128 @@
+id: architecture-design
+version: 1.0.0
+name:
+  de: Architektur & Design
+  en: Architecture & Design
+description:
+  de: Fragen zur Software-Architektur und Design Patterns
+  en: Questions about software architecture and design patterns
+category: architecture
+tags:
+  - architecture
+  - design
+  - patterns
+author:
+  name: WDA Team
+estimatedMinutes: 7
+targetAudience:
+  - architect
+  - tech-lead
+  - senior-developer
+
+questions:
+  - id: q62-architecture-pattern
+    text:
+      de: Welches Architektur-Pattern nutzt ihr? (Monolith, Microservices, Serverless, etc.)
+      en: What architecture pattern do you use? (Monolith, Microservices, Serverless, etc.)
+    type: text
+    required: true
+    applicableModes:
+      - quick
+      - standard
+      - deep
+    metadata:
+      category: architecture
+      freierTalkPotential: high
+
+  - id: q63-design-patterns
+    text:
+      de: Welche Design Patterns verwendet ihr am häufigsten?
+      en: Which design patterns do you use most frequently?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: patterns
+
+  - id: q64-api-design
+    text:
+      de: Wie designt ihr eure APIs? (REST, GraphQL, gRPC, etc.)
+      en: How do you design your APIs? (REST, GraphQL, gRPC, etc.)
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: api
+
+  - id: q65-layered-architecture
+    text:
+      de: Nutzt ihr eine Layered Architecture? (Controller, Service, Repository, etc.)
+      en: Do you use a layered architecture? (Controller, Service, Repository, etc.)
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, strikt
+        - Ja, locker
+        - Nein
+      en:
+        - Yes, strictly
+        - Yes, loosely
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: architecture
+
+  - id: q66-separation-concerns
+    text:
+      de: Wie trennt ihr Business Logic von Infrastructure Code?
+      en: How do you separate business logic from infrastructure code?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: architecture
+      freierTalkPotential: high
+
+  - id: q67-error-boundaries
+    text:
+      de: Wie implementiert ihr Error Boundaries/Error Handling?
+      en: How do you implement error boundaries/error handling?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: error-handling
+
+  - id: q68-dependency-injection
+    text:
+      de: Nutzt ihr Dependency Injection?
+      en: Do you use dependency injection?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, mit Framework
+        - Ja, manuell
+        - Nein
+      en:
+        - Yes, with framework
+        - Yes, manually
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: patterns

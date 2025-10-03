@@ -1,0 +1,142 @@
+id: retrospectives-improvements
+version: 1.0.0
+name:
+  de: Retrospektiven & Verbesserungen
+  en: Retrospectives & Improvements
+description:
+  de: Fragen zu Retrospektiven und kontinuierlicher Verbesserung
+  en: Questions about retrospectives and continuous improvement
+category: process-improvement
+tags:
+  - retrospective
+  - improvement
+  - agile
+author:
+  name: WDA Team
+estimatedMinutes: 6
+targetAudience:
+  - tech-lead
+  - developer
+  - scrum-master
+
+questions:
+  - id: q87-retrospective-frequency
+    text:
+      de: Wie oft macht ihr Retrospektiven?
+      en: How often do you do retrospectives?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Nach jedem Sprint
+        - Monatlich
+        - Quartalsweise
+        - Selten/Nie
+      en:
+        - After each sprint
+        - Monthly
+        - Quarterly
+        - Rarely/Never
+    applicableModes:
+      - standard
+      - deep
+    metadata:
+      category: agile
+
+  - id: q88-action-items
+    text:
+      de: Wie tracked ihr Action Items aus Retrospektiven?
+      en: How do you track action items from retrospectives?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 15
+    metadata:
+      category: tracking
+      freierTalkPotential: medium
+
+  - id: q89-improvement-culture
+    text:
+      de: Gibt es eine Kultur der kontinuierlichen Verbesserung im Team?
+      en: Is there a culture of continuous improvement in the team?
+    type: scale
+    required: false
+    scale:
+      min: 1
+      max: 5
+    applicableModes:
+      - standard
+      - deep
+    followUpRules:
+      - condition: answer_negative
+        followUpQuestion:
+          text:
+            de: Was hindert das Team daran, Verbesserungen umzusetzen?
+            en: What prevents the team from implementing improvements?
+    metadata:
+      category: culture
+      freierTalkPotential: high
+
+  - id: q90-biggest-win
+    text:
+      de: Was war die größte Prozess-Verbesserung der letzten 6 Monate?
+      en: What was the biggest process improvement in the last 6 months?
+    type: text
+    required: false
+    applicableModes:
+      - deep
+    validation:
+      minLength: 20
+    metadata:
+      category: wins
+      freierTalkPotential: high
+
+  - id: q91-blockers
+    text:
+      de: Was sind aktuell die größten Blocker für produktives Arbeiten?
+      en: What are currently the biggest blockers for productive work?
+    type: text
+    required: false
+    applicableModes:
+      - standard
+      - deep
+    validation:
+      minLength: 15
+    followUpRules:
+      - condition: contains_keywords
+        keywords:
+          - meetings
+          - interruptions
+          - processes
+          - tools
+        followUpQuestion:
+          text:
+            de: Interessant. Gibt es konkrete Ideen wie man das verbessern könnte?
+            en: Interesting. Are there concrete ideas how to improve this?
+    metadata:
+      category: blockers
+      freierTalkPotential: high
+
+  - id: q92-experiment-freedom
+    text:
+      de: Dürfen Entwickler neue Tools/Technologien ausprobieren?
+      en: Are developers allowed to try out new tools/technologies?
+    type: single_choice
+    required: false
+    options:
+      de:
+        - Ja, frei
+        - Mit Genehmigung
+        - Nur in privaten Projekten
+        - Nein
+      en:
+        - Yes, freely
+        - With approval
+        - Only in private projects
+        - No
+    applicableModes:
+      - deep
+    metadata:
+      category: innovation
