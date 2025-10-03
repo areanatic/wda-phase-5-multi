@@ -35,7 +35,7 @@ export class OpenAIProvider extends AIProvider {
       throw new Error(`OpenAI API error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
 
     return {
       content: data.choices[0].message.content,

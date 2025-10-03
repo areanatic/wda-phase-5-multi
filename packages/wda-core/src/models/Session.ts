@@ -7,10 +7,13 @@
 
 import type { SurveyMode } from './Config';
 
+// Re-export SurveyMode for convenience
+export type { SurveyMode };
+
 /**
  * Session status
  */
-export type SessionStatus = 'in_progress' | 'completed' | 'paused' | 'abandoned';
+export type SessionStatus = 'not_started' | 'in_progress' | 'completed' | 'paused' | 'abandoned';
 
 /**
  * Session entity representing a survey session
@@ -108,6 +111,10 @@ export interface Session {
      * Session-specific notes
      */
     notes?: string;
+    /**
+     * Number of exports created for this session
+     */
+    exportCount?: number;
   };
 }
 

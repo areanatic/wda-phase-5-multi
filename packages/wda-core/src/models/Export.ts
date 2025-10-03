@@ -128,6 +128,11 @@ export function createExport(params: {
   filePath: string;
   fileSize: number;
   checksum: string;
+  metadata?: {
+    options?: Record<string, any>;
+    generationTime?: number;
+    includesFreierTalk?: boolean;
+  };
 }): Export {
   return {
     id: crypto.randomUUID(),
@@ -137,6 +142,6 @@ export function createExport(params: {
     filePath: params.filePath,
     fileSize: params.fileSize,
     checksum: params.checksum,
-    metadata: {},
+    metadata: params.metadata || {},
   };
 }

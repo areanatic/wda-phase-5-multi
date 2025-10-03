@@ -15,7 +15,10 @@ export interface ValidationResult {
 export interface FollowUpTrigger {
   triggered: boolean;
   reason?: 'answer_too_short' | 'answer_too_vague' | 'contains_keywords' | 'answer_negative';
-  followUpQuestion?: Question;
+  followUpQuestion?: {
+    de: string;
+    en: string;
+  };
 }
 
 /**
@@ -161,7 +164,7 @@ export class ValidationEngine {
 
       switch (rule.condition) {
         case 'answer_too_short':
-          triggered = this.detectAnswerTooShort(answer, rule.threshold);
+          triggered = this.detectAnswerTooShort(answer, rule.params?.threshold as number);
           reason = 'answer_too_short';
           break;
 
@@ -171,8 +174,9 @@ export class ValidationEngine {
           break;
 
         case 'contains_keywords':
-          if (rule.keywords) {
-            triggered = rule.keywords.some((kw) =>
+          if (rule.params?.keywords) {
+            const keywords = rule.params.keywords as string[];
+            triggered = keywords.some((kw: string) =>
               answer.toLowerCase().includes(kw.toLowerCase())
             );
             reason = 'contains_keywords';
@@ -185,11 +189,11 @@ export class ValidationEngine {
           break;
       }
 
-      if (triggered && rule.followUpQuestion) {
+      if (triggered && rule.followUpText) {
         return {
           triggered: true,
           reason,
-          followUpQuestion: rule.followUpQuestion,
+          followUpQuestion: rule.followUpText,
         };
       }
     }

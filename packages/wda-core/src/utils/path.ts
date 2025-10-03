@@ -146,16 +146,6 @@ export function getCheckpointFilePath(workspacePath: string, sessionId: string, 
 /**
  * Get export file path
  */
-export function getExportFilePath(workspacePath: string, sessionName: string, format: 'json' | 'yaml' | 'markdown'): string {
-  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const sanitizedName = sanitizeFileName(sessionName);
-  const extension = format === 'markdown' ? 'md' : format;
-  return joinPaths(getExportsDir(workspacePath), `${sanitizedName}-${timestamp}.${extension}`);
-}
-
-/**
- * Get export file path
- */
 export function getExportFilePath(
   workspacePath: string,
   sessionName: string,

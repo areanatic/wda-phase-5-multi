@@ -6,6 +6,7 @@
  */
 
 import * as fs from 'fs/promises';
+import type { Stats } from 'fs';
 import * as path from 'path';
 
 /**
@@ -122,7 +123,7 @@ export class LocalStorageProvider {
   /**
    * Get file stats
    */
-  async stat(filePath: string): Promise<fs.Stats> {
+  async stat(filePath: string): Promise<Stats> {
     const fullPath = this.resolvePath(filePath);
     return await fs.stat(fullPath);
   }
